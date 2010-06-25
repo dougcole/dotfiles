@@ -13,7 +13,7 @@ export ZSH_THEME="robbyrussell"
 
 # Uncomment following line if you want to disable colors in ls
 # export DISABLE_LS_COLORS="true"
-
+plugin=(git rails)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
