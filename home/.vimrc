@@ -26,3 +26,10 @@ cd ~/workspace/estately
 
 
 vmap <Leader>g :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
+
+" GUI is running or is about to start.
+" Maximize gvim window.
+if has("gui_running")
+  set lines=999 columns=999
+endif
+
