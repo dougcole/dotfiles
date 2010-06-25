@@ -20,4 +20,6 @@ source $ZSH/oh-my-zsh.sh
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
 if [[ -s /home/doug/.rvm/scripts/rvm ]] ; then source /home/doug/.rvm/scripts/rvm ; fi
 
+#ubuntu calls ack ack-grep.  lame.
 alias ack=ack-grep
+xmodmap ~/.xmodmap
