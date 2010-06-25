@@ -22,4 +22,3 @@ if [[ -s /home/doug/.rvm/scripts/rvm ]] ; then source /home/doug/.rvm/scripts/rv
 
 #ubuntu calls ack ack-grep.  lame.
 alias ack=ack-grep
-xmodmap ~/.xmodmap
