@@ -1,9 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/home/doug/workspace/estately/lib/resque'
-let g:netrw_dirhist_2='/home/doug/workspace/estately/lib'
-let g:netrw_dirhist_3='/home/doug/workspace/estately/lib/resque_jobs'
-let g:netrw_dirhist_4='/home/doug/workspace/estately/spec/models'
-let g:netrw_dirhist_5='/home/doug/workspace/estately/vendor/plugins/spatial_adapter'
-let g:netrw_dirhist_6='/home/doug/workspace/estately/vendor/plugins/spatial_adapter/lib'
-let g:netrw_dirhist_7='/home/doug/workspace/estately/lib/resque_jobs'
+let g:netrw_dirhist_cnt =0
