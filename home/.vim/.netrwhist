@@ -1,2 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =0
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home/doug/workspace/estately/vendor/plugins/acts_as_list'
+let g:netrw_dirhist_2='/home/doug/workspace/estately/vendor/plugins/acts_as_list/lib'
+let g:netrw_dirhist_3='/home/doug/workspace/estately/vendor/plugins/acts_as_list/lib/active_record'
+let g:netrw_dirhist_4='/home/doug/workspace/estately/vendor/plugins/acts_as_list/lib/active_record/acts'
+let g:netrw_dirhist_5='/home/doug/workspace/estately/vendor/plugins/acts_as_list'
