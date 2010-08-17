@@ -17,7 +17,13 @@ set ic
 set scs
 set hidden
 
+"Shorcuts to move around a split screen
 map - <c-w>w
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-h> <c-w>h
+map <c-l> <c-w>l
+
 set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%=%-40(bytval=0x%B,%n%Y%)\%P
 
 colorscheme railscasts

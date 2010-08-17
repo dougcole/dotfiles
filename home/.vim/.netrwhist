@@ -1,7 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/doug/workspace/estately/vendor/plugins/acts_as_list'
-let g:netrw_dirhist_2='/home/doug/workspace/estately/vendor/plugins/acts_as_list/lib'
-let g:netrw_dirhist_3='/home/doug/workspace/estately/vendor/plugins/acts_as_list/lib/active_record'
-let g:netrw_dirhist_4='/home/doug/workspace/estately/vendor/plugins/acts_as_list/lib/active_record/acts'
-let g:netrw_dirhist_5='/home/doug/workspace/estately/vendor/plugins/acts_as_list'
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/home/doug/workspace/estately/requirements/librets-1.5.1/project'
+let g:netrw_dirhist_2='/home/doug/workspace/estately/requirements/librets-1.5.1/project/swig'
+let g:netrw_dirhist_3='/home/doug/workspace/estately/requirements/librets-1.5.1/project/swig/ruby'
+let g:netrw_dirhist_4='/home/doug/workspace/estately/public/javascripts'
+let g:netrw_dirhist_5='/home/doug/workspace/ferry'
+let g:netrw_dirhist_6='/home/doug/workspace/ferry/lib'
+let g:netrw_dirhist_7='/home/doug/workspace/ferry/lib/ferry'
