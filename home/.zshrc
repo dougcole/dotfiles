@@ -13,7 +13,7 @@ export ZSH_THEME="robbyrussell"
 
 # Uncomment following line if you want to disable colors in ls
 # export DISABLE_LS_COLORS="true"
-plugins=(git rails)
+plugins=(git rails cap)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
@@ -22,3 +22,7 @@ if [[ -s /home/doug/.rvm/scripts/rvm ]] ; then source /home/doug/.rvm/scripts/rv
 
 #ubuntu calls ack ack-grep.  lame.
 alias ack=ack-grep
+
+alias git_delete_merged_remotes="git branch -a --merged | awk --field-separator=/ '/remotes\/origin/ && !/\/master$/ { print $3 }' | xargs git push --delete origin"
+alias cap_diff='cap production deploy:pending:diff | gview -'
+alias ss='bundle exec unicorn_rails -p 3000'

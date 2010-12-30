@@ -8,4 +8,5 @@ IRB.conf[:AUTO_INDENT] = true
 IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-save-history"
 # How many lines to save
 IRB.conf[:SAVE_HISTORY] = 1000
-
+#no output
+#IRB.conf[:PROMPT][ IRB.conf[:PROMPT_MODE] ][:RETURN]=''
