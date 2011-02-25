@@ -24,5 +24,12 @@ if [[ -s /home/doug/.rvm/scripts/rvm ]] ; then source /home/doug/.rvm/scripts/rv
 alias ack=ack-grep
 
 alias git_delete_merged_remotes="git branch -a --merged | awk --field-separator=/ '/remotes\/origin/ && !/\/master$/ { print $3 }' | xargs git push --delete origin"
-alias cap_diff='cap production deploy:pending:diff | gview -'
+alias cap_diff='bundle exec cap production deploy:pending:diff | gview -'
 alias ss='bundle exec unicorn_rails -p 3000'
+
+export RUBY_HEAP_MIN_SLOTS=500000
+export RUBY_HEAP_SLOTS_INCREMENT=500000
+export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
+export RUBY_GC_MALLOC_LIMIT=100000000
+export RUBY_HEAP_FREE_MIN=500000
+
