@@ -39,3 +39,4 @@ if has("gui_running")
   set lines=999 columns=999
 endif
 
+set directory=~/.vim/swapfiles,/var/tmp,/tmp,.
