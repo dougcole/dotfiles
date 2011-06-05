@@ -1,5 +1,6 @@
 set nocompatible
 set nofoldenable
+call pathogen#runtime_append_all_bundles()
 syntax on
 filetype on
 filetype indent on
@@ -16,6 +17,8 @@ set ic
 "term
 set scs
 set hidden
+
+set clipboard=unnamed
 
 "Shorcuts to move around a split screen
 map - <c-w>w
@@ -40,3 +43,7 @@ if has("gui_running")
 endif
 
 set directory=~/.vim/swapfiles,/var/tmp,/tmp,.
+
+"Open files with <leader>f
+map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
+
