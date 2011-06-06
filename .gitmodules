@@ -10,3 +10,9 @@
 [submodule "home/.vim/bundle/tabular"]
 	path = home/.vim/bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
+[submodule "home/.vim/bundle/rails"]
+	path = home/.vim/bundle/rails
+	url = https://github.com/tpope/vim-rails.git
+[submodule "home/.vim/bundle/greplace"]
+	path = home/.vim/bundle/greplace
+	url = https://github.com/vim-scripts/greplace.vim.git
