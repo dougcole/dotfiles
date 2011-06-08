@@ -18,15 +18,12 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
-if [[ -s /home/doug/.rvm/scripts/rvm ]] ; then source /home/doug/.rvm/scripts/rvm ; fi
 if [[ -s /Users/dougcole/.rvm/scripts/rvm ]] ; then source /Users/dougcole/.rvm/scripts/rvm ; fi
-
-#ubuntu calls ack ack-grep.  lame.
-alias ack=ack-grep
 
 alias git_delete_merged_remotes="git branch -a --merged | awk --field-separator=/ '/remotes\/origin/ && !/\/master$/ { print $3 }' | xargs git push --delete origin"
 alias cap_diff='bundle exec cap production deploy:pending:diff | gview -'
 alias ss='bundle exec unicorn_rails -p 3000'
+alias cde='cd ~/workspace/estately'
 
 export RUBY_HEAP_MIN_SLOTS=500000
 export RUBY_HEAP_SLOTS_INCREMENT=500000
