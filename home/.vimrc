@@ -7,8 +7,8 @@ filetype indent on
 filetype plugin on
 
 set autoindent
-set shiftwidth=2
 set softtabstop=2
+set tabstop=2 shiftwidth=2 expandtab
 set smartindent
 set incsearch
 "set ignore case
@@ -31,8 +31,6 @@ set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%
 
 colorscheme railscasts
 setlocal spell spelllang=en_us
-cd ~/workspace/estately
-
 
 vmap <Leader>g :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 

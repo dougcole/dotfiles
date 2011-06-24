@@ -21,9 +21,10 @@ export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/ga
 if [[ -s /Users/dougcole/.rvm/scripts/rvm ]] ; then source /Users/dougcole/.rvm/scripts/rvm ; fi
 
 alias git_delete_merged_remotes="git branch -a --merged | awk --field-separator=/ '/remotes\/origin/ && !/\/master$/ { print $3 }' | xargs git push --delete origin"
-alias cap_diff='bundle exec cap production deploy:pending:diff | gview -'
+alias cap_diff='bundle exec cap production deploy:pending:diff | view -'
 alias ss='bundle exec unicorn_rails'
 alias cde='cd ~/workspace/estately'
+alias cdm='cd ~/workspace/mlses'
 
 export RUBY_HEAP_MIN_SLOTS=500000
 export RUBY_HEAP_SLOTS_INCREMENT=500000
