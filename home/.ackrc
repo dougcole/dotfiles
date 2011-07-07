@@ -1,5 +1,15 @@
+# lexically sort filenames
+--sort-files
+
+--type-add=ruby=rake,haml
+--type-add=css=scss
+--type-add=vim=vimrc
+--type-add=js=json
+--type-set=RDOC=rdoc
+--nocss
+
+
+# ignore vendor and db dirs, I rarely want to search in there.  can be overridden by
+# --noignore-dir=vendor
 --ignore-dir=vendor
 --ignore-dir=db
---type-set=haml=.haml
---type-set=sass=.scss
---nocss
