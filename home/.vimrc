@@ -20,6 +20,9 @@ set hidden
 
 set clipboard=unnamed
 
+"needed to setup compatibility with rvm
+set shell=sh
+
 let mapleader = ","
 
 "Shorcuts to move around a split screen
