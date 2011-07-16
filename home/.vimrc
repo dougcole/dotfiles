@@ -23,6 +23,9 @@ set clipboard=unnamed
 "needed to setup compatibility with rvm
 set shell=sh
 
+"kill old fugitive buffers
+autocmd BufReadPost fugitive://* set bufhidden=delete
+
 let mapleader = ","
 
 "Shorcuts to move around a split screen
