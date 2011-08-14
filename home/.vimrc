@@ -10,6 +10,10 @@ set autoindent
 set softtabstop=2
 set tabstop=2 shiftwidth=2 expandtab
 set smartindent
+
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
 set incsearch
 "set ignore case
 set ic
