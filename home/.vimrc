@@ -1,7 +1,7 @@
 set nocompatible
 set nofoldenable
 call pathogen#runtime_append_all_bundles()
-syntax on
+syntax enable
 filetype on
 filetype indent on
 filetype plugin on
@@ -40,8 +40,11 @@ map <c-h> <c-w>h
 map <c-l> <c-w>l
 
 set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%=%-40(bytval=0x%B,%n%Y%)\%P
+set laststatus=2 
+set number
 
-colorscheme railscasts
+set background=dark
+colorscheme solarized
 setlocal spell spelllang=en_us
 
 vmap <Leader>g :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
