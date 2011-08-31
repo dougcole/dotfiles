@@ -22,6 +22,13 @@ set ic
 set scs
 set hidden
 
+set list                     " show whitespace
+set listchars=tab:»·,trail:· " show tabs and trailing spaces
+set listchars+=extends:»     " show a » when a line goes off the right
+                             " edge of the screen
+set listchars+=precedes:«    " show a « when a line goes off the left
+                             " edge of the screen
+
 set clipboard=unnamed
 
 "needed to setup compatibility with rvm
@@ -40,7 +47,7 @@ map <c-h> <c-w>h
 map <c-l> <c-w>l
 
 set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%=%-40(bytval=0x%B,%n%Y%)\%P
-set laststatus=2 
+set laststatus=2
 set number
 
 set background=dark
@@ -72,3 +79,12 @@ map <leader>gs :CommandTFlush<cr>\|:CommandT rspec<cr>
 
 "map a to :Ack
 nnoremap <leader>a :Ack 
+
+" shortcut to strip trailing whitespace
+map <leader>s :s/\s\+$//g<CR>
+
+
+""" Tabular
+" sets ,= to align = and => lines
+map <leader>= :Tabularize /=>\?<cr>
+
