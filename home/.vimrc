@@ -28,9 +28,6 @@ set listchars+=extends:»     " show a » when a line goes off the right
                              " edge of the screen
 set listchars+=precedes:«    " show a « when a line goes off the left
                              " edge of the screen
-
-set clipboard=unnamed
-
 "needed to setup compatibility with rvm
 set shell=sh
 
