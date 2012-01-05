@@ -17,10 +17,14 @@ plugins=(git rails cap)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/Applications/TextMate.app/Contents/SharedSupport/Support/bin
 if [[ -s /Users/dougcole/.rvm/scripts/rvm ]] ; then source /Users/dougcole/.rvm/scripts/rvm ; fi
 
-alias git_delete_merged_remotes="git branch -a --merged | awk --field-separator=/ '/remotes\/origin/ && !/\/master$/ { print $3 }' | xargs git push --delete origin"
+function git_delete_merged_remotes() {
+  git branch -a --merged |
+  awk -F '/' '/remotes\/origin/ && !/\/master$/ { print $3 }' |
+  xargs git push --delete origin
+}
 alias cap_diff='bundle exec cap production deploy:pending:diff | view -'
 alias ss='bundle exec unicorn_rails'
 alias cde='cd ~/workspace/estately'
@@ -32,3 +36,5 @@ export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=100000000
 export RUBY_HEAP_FREE_MIN=500000
 
+export EDITOR='vim'
+export NODE_PATH=/usr/local/lib/node_modules

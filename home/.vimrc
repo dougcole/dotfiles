@@ -28,8 +28,12 @@ set listchars+=extends:»     " show a » when a line goes off the right
                              " edge of the screen
 set listchars+=precedes:«    " show a « when a line goes off the left
                              " edge of the screen
+
 "needed to setup compatibility with rvm
 set shell=sh
+
+"speed up macros
+set lazyredraw
 
 "kill old fugitive buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
@@ -84,4 +88,47 @@ map <leader>s :s/\s\+$//g<CR>
 """ Tabular
 " sets ,= to align = and => lines
 map <leader>= :Tabularize /=>\?<cr>
+nnoremap <CR> :nohlsearch<cr>
+
+
+function! SetTestFile()
+    " Set the spec file that tests will be run for.
+    let t:grb_test_file=@%
+endfunction
+
+function! RunTests(filename)
+    " Write the file and run tests for the given filename
+    :w
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    if match(a:filename, '\.feature$') != -1
+        exec ":!bundle exec cucumber " . a:filename
+    else
+        if filereadable("script/test")
+            exec ":!script/test " . a:filename
+        elseif filereadable("Gemfile")
+            exec ":!bundle exec rspec --color " . a:filename
+        else
+            exec ":!rspec --color " . a:filename
+        end
+    end
+endfunction
+
+function! RunTestFile(...)
+  if a:0
+    let command_suffix = a:1
+  else
+    let command_suffix = ""
+  endif
+
+  " Run the tests for the previously-marked file.
+  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\)$') != -1
+  if in_test_file
+    call SetTestFile()
+  elseif !exists("t:grb_test_file")
+    return
+  end
+  call RunTests(t:grb_test_file . command_suffix)
+endfunction
+map <leader>t :call RunTestFile()<cr>
+
 
