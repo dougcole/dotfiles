@@ -1,3 +1,6 @@
 [user]
-	name = Doug Cole
-	email = doug@estately.com
+  name = Doug Cole
+  email = doug@estately.com
+
+[alias]
+  standup = log --since yesterday --oneline --author doug

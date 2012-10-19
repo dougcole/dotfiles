@@ -13,3 +13,6 @@
 # --noignore-dir=vendor
 --ignore-dir=vendor
 --ignore-dir=db
+--ignore-dir=coverage
+--ignore-dir=doc
+--ignore-dir=ckeditor

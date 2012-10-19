@@ -87,7 +87,9 @@ map <leader>s :s/\s\+$//g<CR>
 
 """ Tabular
 " sets ,= to align = and => lines
+" sets ,; to align after the : in javscript objects
 map <leader>= :Tabularize /=>\?<cr>
+map <leader>; :Tabularize /:\zs /<cr> 
 nnoremap <CR> :nohlsearch<cr>
 
 
@@ -130,5 +132,3 @@ function! RunTestFile(...)
   call RunTests(t:grb_test_file . command_suffix)
 endfunction
 map <leader>t :call RunTestFile()<cr>
-
-
