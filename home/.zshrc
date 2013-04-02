@@ -13,13 +13,16 @@ export ZSH_THEME="robbyrussell"
 
 # Uncomment following line if you want to disable colors in ls
 # export DISABLE_LS_COLORS="true"
-plugins=(git rails cap)
+plugins=(git rails cap knife bundler)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/Applications/TextMate.app/Contents/SharedSupport/Support/bin
 
+unsetopt correct_all
+
 function git_delete_merged_remotes() {
+  git remote prune origin
   git branch -a --merged |
   awk -F '/' '/remotes\/origin/ && !/\/master$/ { print $3 }' |
   xargs git push --delete origin

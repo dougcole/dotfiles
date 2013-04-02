@@ -10,6 +10,7 @@ set autoindent
 set softtabstop=2
 set tabstop=2 shiftwidth=2 expandtab
 set smartindent
+set hlsearch
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
