@@ -16,4 +16,5 @@
 --ignore-dir=coverage
 --ignore-dir=doc
 --ignore-dir=ckeditor
---ignore-dir=assets
+--ignore-dir=assets/stylesheets
+--ignore-dir=public/assets

@@ -4,3 +4,5 @@
 
 [alias]
   standup = log --since yesterday --oneline --author doug
+[push]
+	default = simple
