@@ -39,6 +39,8 @@ set lazyredraw
 "kill old fugitive buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
+autocmd FileType ruby let b:dispatch = 'bundle exec rspec %'
+
 let mapleader = ","
 
 "Shorcuts to move around a split screen

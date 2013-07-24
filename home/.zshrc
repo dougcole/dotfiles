@@ -24,11 +24,13 @@ unsetopt correct_all
 function git_delete_merged_remotes() {
   git remote prune origin
   git branch -a --merged |
-  awk -F '/' '/remotes\/origin/ && !/\/master$/ { print $3 }' |
+  grep 'remotes/origin' |
+  grep -v master |
+  cut -c 18-999 | #cut out "  remotes/origin/"
   xargs git push --delete origin
 }
 alias cap_diff='bundle exec cap production deploy:pending:diff | view -'
-alias ss='bundle exec unicorn_rails'
+alias ss='bundle exec rails s'
 alias cde='cd ~/workspace/estately'
 alias cdm='cd ~/workspace/mlses'
 
