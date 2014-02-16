@@ -18,3 +18,4 @@
 --ignore-dir=ckeditor
 --ignore-dir=assets/stylesheets
 --ignore-dir=public/assets
+--ignore-file=is:tags
