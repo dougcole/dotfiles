@@ -68,31 +68,22 @@ endif
 
 set directory=~/.vim/swapfiles,/var/tmp,/tmp,.
 
-"Open files with <leader>f
-map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
-" Open files, limited to the directory of the current file, with <leader>gf
-" This requires the %% mapping found below.
-map <leader>gf :CommandTFlush<cr>\|:CommandT %%<cr>
-map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
-map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
-map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
-map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
-map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
-map <leader>gj :CommandTFlush<cr>\|:CommandT public/javascripts<cr>
-map <leader>gs :CommandTFlush<cr>\|:CommandT rspec<cr>
 
 "map a to :Ack
 nnoremap <leader>a :Ack 
 
 " shortcut to strip trailing whitespace
 map <leader>s :s/\s\+$//g<CR>
+nmap <leader>o o<esc>
+nmap <leader>O O<esc>
 
 
 """ Tabular
 " sets ,= to align = and => lines
 " sets ,; to align after the : in javscript objects
 map <leader>= :Tabularize /=>\?<cr>
-map <leader>; :Tabularize /:\zs /<cr> 
+map <leader>; :Tabularize /:\zs /<cr>
+map <leader>d :bp\|bd #<cr>
 nnoremap <CR> :nohlsearch<cr>
 
 
@@ -135,3 +126,22 @@ function! RunTestFile(...)
   call RunTests(t:grb_test_file . command_suffix)
 endfunction
 map <leader>t :call RunTestFile()<cr>
+
+" Run a given vim command on the results of fuzzy selecting from a given shell
+" command. See usage below.
+function! SelectaCommand(choice_command, selecta_args, vim_command)
+  try
+    silent let selection = system(a:choice_command . " | selecta " . a:selecta_args)
+  catch /Vim:Interrupt/
+    " Swallow the ^C so that the redraw below happens; otherwise there will be
+    " leftovers from selecta on the screen
+    redraw!
+    return
+  endtry
+  redraw!
+  exec a:vim_command . " " . selection
+endfunction
+
+" Find all files in all non-dot directories starting in the working directory.
+" Fuzzy select one of those. Open the selected file with :e.
+nnoremap <leader>f :call SelectaCommand("find * -type f -o -path 'vendor' -prune -type f -o -path 'tmp' -prune -type f", "", ":e")<cr>

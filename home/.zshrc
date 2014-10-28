@@ -48,6 +48,7 @@ proj() { cd $(find ~/workspace -type d -maxdepth 1 | selecta) }
 branches() { git for-each-ref --sort=-committerdate --format='%(committerdate) - %(committername) %(refname)' refs/heads/ }
 remote_branches() { git for-each-ref --sort=-committerdate --format='%(committerdate) - %(committername) %(refname)' refs/remotes/origin/ }
 
+eval "$(/Users/dougcole/workspace/est/bin/est init -)"
 source ~/.hub_open.sh
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
