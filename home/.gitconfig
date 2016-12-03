@@ -5,5 +5,11 @@
 [alias]
   standup = log --since yesterday --oneline --author doug
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+[color]
+  ui = auto
 [push]
 	default = simple
+[filter "media"]
+	clean = git media clean %f
+	smudge = git media smudge %f
+	required = true

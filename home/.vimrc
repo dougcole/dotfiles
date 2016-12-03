@@ -11,6 +11,7 @@ set softtabstop=2
 set tabstop=2 shiftwidth=2 expandtab
 set smartindent
 set hlsearch
+set nospell
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -35,6 +36,8 @@ set shell=sh
 
 "speed up macros
 set lazyredraw
+"render long lines without too much slowdown
+set synmaxcol=140
 
 "kill old fugitive buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
@@ -55,8 +58,6 @@ set laststatus=2
 set number
 
 set background=dark
-colorscheme solarized
-setlocal spell spelllang=en_us
 
 vmap <Leader>g :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 
@@ -64,6 +65,10 @@ vmap <Leader>g :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'
 " Maximize gvim window.
 if has("gui_running")
   set lines=999 columns=999
+endif
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
 endif
 
 set directory=~/.vim/swapfiles,/var/tmp,/tmp,.
@@ -85,6 +90,10 @@ map <leader>= :Tabularize /=>\?<cr>
 map <leader>; :Tabularize /:\zs /<cr>
 map <leader>d :bp\|bd #<cr>
 nnoremap <CR> :nohlsearch<cr>
+
+nnoremap <silent> <Leader>+ :exe "vertical resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>- :exe "vertical resize " . (winheight(0) * 2/3)<CR>
+
 
 
 function! SetTestFile()
@@ -131,7 +140,7 @@ map <leader>t :call RunTestFile()<cr>
 " command. See usage below.
 function! SelectaCommand(choice_command, selecta_args, vim_command)
   try
-    silent let selection = system(a:choice_command . " | selecta " . a:selecta_args)
+    let selection = system(a:choice_command . " | selecta " . a:selecta_args)
   catch /Vim:Interrupt/
     " Swallow the ^C so that the redraw below happens; otherwise there will be
     " leftovers from selecta on the screen
@@ -141,6 +150,18 @@ function! SelectaCommand(choice_command, selecta_args, vim_command)
   redraw!
   exec a:vim_command . " " . selection
 endfunction
+
+function! ListActiveBuffers()
+  let bufferlist = []
+  for l:bni in range(bufnr("$"), 1, -1)
+    if buflisted(l:bni)
+      call add(bufferlist, bufname(l:bni))
+    endif
+  endfor
+  return "echo ".join(bufferlist, ' ')." | tr ' ' '\\n' "
+endfunction
+nnoremap <leader>b :exec SelectaCommand(ListActiveBuffers(), "", ":e")<cr>
+
 
 " Find all files in all non-dot directories starting in the working directory.
 " Fuzzy select one of those. Open the selected file with :e.

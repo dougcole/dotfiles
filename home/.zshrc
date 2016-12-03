@@ -32,24 +32,19 @@ function git_delete_merged_remotes() {
 alias cap_diff='bundle exec cap production deploy:pending:diff | view -'
 alias ss='bundle exec rails s'
 alias be='bundle exec'
-alias cde='cd ~/workspace/estately'
-alias cdm='cd ~/workspace/mlses'
-
-export RUBY_GC_HEAP_INIT_SLOTS=1000000
-export RUBY_HEAP_SLOTS_INCREMENT=1000000
-export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
-export RUBY_GC_MALLOC_LIMIT=100000000
-export RUBY_HEAP_FREE_MIN=500000
+alias we='cd ~/work/estately'
 
 export EDITOR='vim'
-export NODE_PATH=/usr/local/lib/node_modules
 
-proj() { cd $(find ~/workspace -type d -maxdepth 1 | selecta) }
+proj() { cd $(find ~/work -type d -maxdepth 1 | selecta) }
 branches() { git for-each-ref --sort=-committerdate --format='%(committerdate) - %(committername) %(refname)' refs/heads/ }
 remote_branches() { git for-each-ref --sort=-committerdate --format='%(committerdate) - %(committername) %(refname)' refs/remotes/origin/ }
 
-eval "$(/Users/dougcole/workspace/est/bin/est init -)"
+eval "$(/Users/dougcole/work/est/bin/est init -)"
 source ~/.hub_open.sh
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
-chruby ruby-2.1.0
+chruby ruby-2.3.0
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
