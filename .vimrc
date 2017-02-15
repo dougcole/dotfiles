@@ -1,10 +1,25 @@
 set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+call vundle#end()
+filetype plugin indent on
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'mileszs/ack.vim'
+Plugin 'tpope/vim-haml'
+Plugin 'godlygeek/tabular'
+Plugin 'tpope/vim-rails'
+Plugin 'vim-scripts/greplace.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-endwise'
+
 set nofoldenable
-call pathogen#runtime_append_all_bundles()
 syntax enable
-filetype on
-filetype indent on
-filetype plugin on
 
 set autoindent
 set softtabstop=2

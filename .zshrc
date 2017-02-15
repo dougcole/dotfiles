@@ -29,7 +29,6 @@ function git_delete_merged_remotes() {
   cut -c 18-999 | #cut out "  remotes/origin/"
   xargs git push --delete origin
 }
-alias cap_diff='bundle exec cap production deploy:pending:diff | view -'
 alias ss='bundle exec rails s'
 alias be='bundle exec'
 alias we='cd ~/work/estately'
@@ -41,10 +40,6 @@ branches() { git for-each-ref --sort=-committerdate --format='%(committerdate) -
 remote_branches() { git for-each-ref --sort=-committerdate --format='%(committerdate) - %(committername) %(refname)' refs/remotes/origin/ }
 
 eval "$(/Users/dougcole/work/est/bin/est init -)"
-source ~/.hub_open.sh
-source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
-chruby ruby-2.3.0
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
